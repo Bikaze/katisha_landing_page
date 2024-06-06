@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katisha Online - About</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            text-align: center;
+            background-color: #fff;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        footer {
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+            font-family: 'Lobster', cursive;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .search-box input {
+            flex: 1;
+            height: 50px;
+            font-size: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-box button {
+            height: 50px;
+            width: 70px;
+            font-size: 1.5rem;
+            border-radius: 0 25px 25px 0;
+            border: 1px solid #ddd;
+            border-left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .search-box button i {
+            color: #000;
+        }
+        .search-box button:hover {
+            background-color: #000;
+        }
+        .search-box button:hover i {
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 4rem;
+        }
+        .navbar {
+            background-color: #fff;
+        }
+        .navbar-nav .nav-item .nav-link {
+            position: relative;
+            color: #000;
+            font-size: 1.25rem;
+        }
+        .navbar-nav .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            background: #000;
+            transition: width 0.3s;
+        }
+        .navbar-nav .nav-item .nav-link:hover::after {
+            width: 100%;
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #000;
+        }
+        footer a {
+            color: #000;
+        }
+        .footer-text {
+            text-align: left;
+        }
+        .about-section {
+            padding: 40px 20px;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .about-section .row > div {
+            margin-bottom: 20px;
+        }
+        
+        .round-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 300px;
+            background-image: url('cover-image.png'); /* replace with actual image */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+        .intro-section {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .intro-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .intro-section p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .btn-project {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+        .features-section {
+            padding: 40px 20px;
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .features-section .row > div {
+            margin-bottom: 20px;
+        }
+
+        .features-section .round-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            padding: 20px;
+            display: inline-block;
+            color: #000;
+        }
+
+        .features-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .features-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .inspiration-section {
+            padding: 40px 20px;
+            text-align: left;
+        }
+
+        .inspiration-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .inspiration-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .team-section .round-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .team-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .team-section a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .team-section a:hover {
+            text-decoration: underline;
+        }
+
+        .team-section a i {
+            margin-right: 5px;
+        }
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            background-image: url('person3.jpeg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="cover-image"></div>
+    <div class="intro-section">
+        <h1>Katisha Online</h1>
+        <p>Revolutionizing Inter-District Travel in Rwanda</p>
+        <button class="btn btn-primary btn-project" onclick="location.href='web-01.bikaze.tech'">Explore Our Project</button>
+    </div>
+    <div class="main-content">
+        <section class="about-section">
+            <h2>About Katisha Online</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="round-image">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Elevator Pitch</h3>
+                    <p>Katisha Online is a mobile app that allows users to easily find, compare, and book inter-district bus tickets across Rwanda in just a few taps. Our seamless booking and e-ticketing system eliminates long queues and hassles, while our smart routing helps travelers reach their destination quickly and affordably.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="round-image">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Detailed Description</h3>
+                    <p>Katisha Online provides a seamless and user-friendly online booking experience that puts convenience and efficiency at the forefront. Users can easily search for available routes, compare transport options, and secure their tickets with just a few clicks, eliminating the need to physically stand in long queues.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="round-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Convenience at Your Fingertips</h3>
+                    <p>Imagine never having to wait in long, frustrating queues just to buy a bus ticket for inter-district travel in Rwanda. With Katisha Online, you can book your inter-district bus tickets from anywhere, anytime, with just a few taps on your mobile device or computer.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="round-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Addressable Market</h3>
+                    <p>Based on the available data, Rwanda has a population of approximately 13.25 million people. Assuming that 50% of the population uses public transportation for inter-district travel, we can estimate the total number of users to be around 6.63 million people.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="round-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Differentiating Factors</h3>
+                    <p>Katisha Online is the first platform of its kind in Rwanda, providing a convenient and eco-friendly solution for commuters seeking efficient and accessible ticketing options for their inter-district travels.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features-section">
+            <h2>Key Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fas fa-search round-icon"></i>
+                    <h3>Search and Filtering</h3>
+                    <p>Search for available tickets and routes and filter them based on your preferences.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-ticket-alt round-icon"></i>
+                    <h3>Online Booking</h3>
+                    <p>Book your tickets online with ease and convenience.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-mobile-alt round-icon"></i>
+                    <h3>E-Ticketing</h3>
+                    <p>Receive your tickets instantly and avoid queues.</p>
+                </div>
+            </div>
+        </section>
+        <section class="inspiration-section">
+            <h2>Our Inspiration</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>It all started one day when we saw the long queues at bus stations and thought, "There has to be a better way." Our team, consisting of frequent travelers, decided to take on this challenge. We wanted to make travel in Rwanda more convenient and efficient. Thus, Katisha Online was born. This project is not just a requirement for Holberton School, but a solution to a real-world problem we are passionate about solving.</p>
+                    <p>Our journey began with brainstorming sessions, market research, and endless cups of coffee. The idea evolved over time, and with the support of Holberton School, we turned our vision into reality. You can view our progress and contributions on our <a href="https://github.com/Bikaze/katisha" target="_blank">GitHub repository</a>.</p>
+                </div>
+            </div>
+            <div class="row team-section">
+                <div class="col-md-6">
+                    <div class="member-image">
+                        <img src="person3.jpg" alt="team member1">
+                    </div>
+                    <h3>Team Member 1</h3>
+                    <p><a href="https://rw.linkedin.com/in/clement-mugisha-96ab3a289" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                    <p><a href="https://github.com/Bikaze" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+                    <p><a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></p>
+                </div>
+                <div class="col-md-6">
+                    <div class="member-image">
+                        <img src="person2.jpeg" alt="team member2">
+                    </div>
+                    <h3>Team Member 2</h3>
+                    <p><a href="https://www.linkedin.com/in/teammember2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                    <p><a href="https://github.com/teammember2" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+                    <p><a href="https://twitter.com/teammember2" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></p>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 footer-text">
+                    <p>Katisha Online</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="#" class="mr-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="mr-3"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="mr-3"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
